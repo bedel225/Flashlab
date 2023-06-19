@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PostController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+
+    table,
+    td {
+        border: 1px solid #333;
+    }
+
+    thead,
+    tfoot {
+        background-color: #333;
+        color: #fff;
+    }
+</style>
+
+<div class="example-wrapper">
+
+    <h3>LA LISTE DES POSTS DANS LA BASE DE DONNEES </h3>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="1">ID</th>
+                <th colspan="1">Title</th>
+                <th colspan="1">Body</th>
+                <th colspan="1">User name</th>
+                <th colspan="1"></th>
+                <th colspan="1"></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+            <tr>
+                <td>{{ post.id }}</td>
+                <td>{{ post.title }}</td>
+                <td>{{ post.body }}</td>
+                <td>{{ post.users.name }}</td>
+                <td><a href="{{path('app_supprime', {id: post.id})}}">Supprimer</a></td>
+                <td><a href= "">Modifier</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

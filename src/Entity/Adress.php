@@ -26,7 +26,6 @@ class Adress
     private ?string $zipcode = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
     private ?Geo $geo = null;
 
     public function getId(): ?int

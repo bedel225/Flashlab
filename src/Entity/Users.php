@@ -123,16 +123,4 @@ class Users
         $this->company = $company;
         return $this;
     }
-
-    public function getGeo(): ?Geo
-    {
-        return $this->geo;
-    }
-
-    public function setGeo(?Geo $geo): static
-    {
-        $this->geo = $geo;
-
-        return $this;
-    }
 }

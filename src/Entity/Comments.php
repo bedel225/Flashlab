@@ -78,16 +78,4 @@ class Comments
 
         return $this;
     }
-
-    public function getPost(): ?Posts
-    {
-        return $this->post;
-    }
-
-    public function setPost(?Posts $post): static
-    {
-        $this->post = $post;
-
-        return $this;
-    }
 }

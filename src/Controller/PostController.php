@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+
 use App\Entity\Posts;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

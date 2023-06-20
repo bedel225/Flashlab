@@ -41,7 +41,7 @@
                 <td>{{ post.body }}</td>
                 <td>{{ post.users.name }}</td>
                 <td><a href="{{path('app_supprime', {id: post.id})}}">Supprimer</a></td>
-                <td><a href= "">Modifier</a></td>
+                <td><a href= "{{path('app_modification', {id: post.id})}}">Modifier</a></td>
             </tr>
         {% endfor %}
         </tbody>

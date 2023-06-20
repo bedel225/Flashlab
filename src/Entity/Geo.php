@@ -21,9 +21,6 @@ class Geo
     #[ORM\Column(length: 255)]
     private ?string $lng = null;
 
-    #[ORM\OneToMany(mappedBy: 'geo', targetEntity: Company::class)]
-    private Collection $companies;
-
     public function __construct()
     {
         $this->companies = new ArrayCollection();
@@ -61,10 +58,6 @@ class Geo
     /**
      * @return Collection<int, Company>
      */
-    public function getCompanies(): Collection
-    {
-        return $this->companies;
-    }
 
     public function addCompany(Company $company): static
     {

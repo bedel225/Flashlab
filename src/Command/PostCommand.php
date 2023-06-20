@@ -22,15 +22,16 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 #[AsCommand(
     name: 'Post',
-    description: 'Add a short description for your command',
+    description: 'la commande pour recuperer les comments, les posts et les users',
 )]
 class PostCommand extends Command
 {
-     //constructeur
+     
     private $postService;
     private $commentService;
     private $userService;
     private $entityManager;
+
     public function __construct(PostService $postService,CommentService $commentService, UserService $userService,
     EntityManagerInterface $entityManager)
     {
@@ -89,6 +90,7 @@ class PostCommand extends Command
           $user->setAdress($adress);
           $user->setCompany($company);
           $this->entityManager->persist($user);
+          // actually executes the queries (i.e. the INSERT query)
           $this->entityManager->flush(); 
           
         }
@@ -105,7 +107,6 @@ class PostCommand extends Command
             $post->setTitle($data["title"]);
             $post->setBody($data["body"]);
             $this->entityManager->persist($post);                    
-            // actually executes the queries (i.e. the INSERT query)
             $this->entityManager->flush(); 
         }
 
@@ -122,7 +123,6 @@ class PostCommand extends Command
             $coment->setEmail($data["email"]);
             $coment->setBody($data["body"]);
             $this->entityManager->persist($coment);
-            
             $this->entityManager->flush(); 
         }
         return Command::SUCCESS;

@@ -26,7 +26,6 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 )]
 class PostCommand extends Command
 {
-     
     private $postService;
     private $commentService;
     private $userService;
@@ -103,7 +102,7 @@ class PostCommand extends Command
             if (!$user) {
                 $user = new Users();
             }
-            $post->setUsers($user);
+            $post->setUser($user);
             $post->setTitle($data["title"]);
             $post->setBody($data["body"]);
             $this->entityManager->persist($post);                    
@@ -118,7 +117,7 @@ class PostCommand extends Command
             if (!$post) {
                 $post = new Posts();
             }
-            $coment->setPosts($post);
+            $coment->setPost($post);
             $coment->setName($data["name"]);
             $coment->setEmail($data["email"]);
             $coment->setBody($data["body"]);

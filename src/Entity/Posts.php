@@ -22,8 +22,11 @@ class Posts
     #[ORM\Column(type: Types::TEXT)]
     private ?string $body = null;
 
-    #[ORM\ManyToOne(cascade: ['persist', 'remove'])]
-    private ?Users $users = null;
+    #[ORM\OneToMany(mappedBy: 'post', targetEntity: Comments::class)]
+    private Collection $comments;
+
+    #[ORM\ManyToOne]
+    private ?Users $user = null;
 
     public function __construct()
     {
@@ -59,14 +62,46 @@ class Posts
         return $this;
     }
 
-    public function getUsers(): ?Users
+
+
+    /**
+     * @return Collection<int, Comments>
+     */
+    public function getComments(): Collection
     {
-        return $this->users;
+        return $this->comments;
     }
 
-    public function setUsers(?Users $users): static
+    public function addComment(Comments $comment): static
     {
-        $this->users = $users;
+        if (!$this->comments->contains($comment)) {
+            $this->comments->add($comment);
+            $comment->setPost($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comments $comment): static
+    {
+        if ($this->comments->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getPost() === $this) {
+                $comment->setPost(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getUser(): ?Users
+    {
+        return $this->user;
+    }
+
+    public function setUser(?Users $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }

@@ -23,7 +23,8 @@ class Comments
     #[ORM\Column(type: Types::TEXT)]
     private ?string $body = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\ManyToOne(cascade: ['persist'])]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Posts $post = null;
 
     public function getId(): ?int
@@ -67,14 +68,14 @@ class Comments
         return $this;
     }
 
-    public function getPosts(): ?Posts
+    public function getPost(): ?Posts
     {
-        return $this->posts;
+        return $this->post;
     }
 
-    public function setPosts(?Posts $posts): static
+    public function setPost(?Posts $post): static
     {
-        $this->posts = $posts;
+        $this->post = $post;
 
         return $this;
     }

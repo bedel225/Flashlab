@@ -39,12 +39,13 @@
                 <td>{{ post.id }}</td>
                 <td>{{ post.title }}</td>
                 <td>{{ post.body }}</td>
-                <td>{{ post.users.name }}</td>
+                <td>{{ post.user.name }}</td>
                 <td><a href="{{path('app_supprime', {id: post.id})}}">Supprimer</a></td>
                 <td><a href= "{{path('app_modification', {id: post.id})}}">Modifier</a></td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+{{ knp_pagination_render(posts)}}
 </div>
 {% endblock %}

@@ -22,16 +22,32 @@ class PostController extends AbstractController
     #[Route('/', name: 'app_post')]
     public function index(Request $request, PaginatorInterface $paginator): Response
     {
-       $posts= $this->entityManager->getRepository(Posts::class)->findAll();
-       $pagination = $paginator->paginate(
-        $posts,
-        $request->query->getInt('page',1),
-        4
-       );
+        $author = $request->query->get('author');
+
+        if ($author) {
+            $posts = $this->entityManager
+                ->getRepository(Posts::class)
+                ->createQueryBuilder('p')
+                ->join('p.user', 'u')
+                ->where('u.name = :author')
+                ->setParameter('author', $author)
+                ->getQuery()
+                ->getResult();
+        } else {
+            $posts = $this->entityManager->getRepository(Posts::class)->findAll();
+        }
+
+        $pagination = $paginator->paginate(
+            $posts,
+            $request->query->getInt('page', 1),
+            4
+        );
+
         return $this->render('post/index.html.twig', [
             'posts' => $pagination,
         ]);
     }
+
 
     #[Route('/post/{id}', name: 'app_supprime')]
     public function delete($id): Response

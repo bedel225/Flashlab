@@ -66,3 +66,28 @@ a.edit-link {
 a.edit-link:hover {
     background-color: #d68910;
 }
+
+
+form {
+    margin-bottom: 20px;
+}
+
+form input[type="text"] {
+    padding: 6px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    padding: 6px 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #2980b9;
+}

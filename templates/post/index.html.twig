@@ -22,6 +22,16 @@
 <div class="example-wrapper">
 
     <h3>LA LISTE DES POSTS PRESENTS DANS LA BASE DE DONNEES </h3>
+    <form method="get" action="{{ path('app_post') }}">
+        <input 
+            type="text" 
+            name="author" 
+            placeholder="Rechercher par auteur"
+            value="{{ app.request.get('author') }}"
+        >
+        <button type="submit">Rechercher</button>
+    </form>
+    
     <table>
         <thead>
             <tr>

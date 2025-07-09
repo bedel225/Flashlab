@@ -3,20 +3,21 @@
 {% block title %}Login{% endblock %}
 
 {% block body %}
-    <h1>Login</h1>
+<placeholder>
+    <div class="login-form">
+        <h1>Connexion</h1>
 
-    {% if error %}
-        <div style="color: red;">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+        <form action="{{ path('login') }}" method="post">
+            <label for="email">Email :</label>
+            <input type="text" id="email" name="_username" value="{{ last_username }}" required>
 
-    <form action="{{ path('login') }}" method="post">
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="_username" value="{{ last_username }}" required>
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="_password" required>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="_password" required>
+            <button type="submit">Se connecter</button>
+        </form>
+    </div>
+</placeholder>
 
-        <button type="submit">Login</button>
-    </form>
 {% endblock %}
 

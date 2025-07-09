@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <div class="home-wrapper">
+        <h1>Bienvenue sur notre site</h1>
+        <p>Choisissez une option ci-dessous :</p>
+
+        <div class="button-group">
+            <a href="{{ path('app_register') }}">Créer un compte</a>
+            <a href="{{ path('login') }}">Se connecter</a>
+        </div>
+    </div>
+{% endblock %}

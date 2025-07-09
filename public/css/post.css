@@ -1,3 +1,37 @@
+.home-wrapper {
+    text-align: center;
+    margin-top: 100px;
+    font-family: Arial, sans-serif;
+}
+
+.home-wrapper h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.home-wrapper p {
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.button-group a {
+    display: inline-block;
+    padding: 12px 24px;
+    margin: 10px;
+    font-size: 18px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.button-group a:hover {
+    background-color: #2980b9;
+}
+
+
+
 .example-wrapper {
     margin: 2em auto;
     max-width: 1000px;
@@ -67,7 +101,6 @@ a.edit-link:hover {
     background-color: #d68910;
 }
 
-
 form {
     margin-bottom: 20px;
 }
@@ -91,3 +124,54 @@ form button {
 form button:hover {
     background-color: #2980b9;
 }
+
+/* ✅ Ajout du style pour la page login */
+.login-form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+}
+
+.login-form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-form label {
+    display: block;
+    margin-top: 15px;
+    color: #555;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.login-form button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: #45a049;
+}
+
+

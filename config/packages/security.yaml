@@ -29,12 +29,8 @@ security:
                 path: logout
                 target: /login
 
-    access_control:
-        - { path: ^/create-user, roles: PUBLIC_ACCESS }
-        - { path: ^/welcome, roles: PUBLIC_ACCESS }
-        - { path: ^/login, roles: PUBLIC_ACCESS }
-        - { path: ^/, roles: ROLE_USER }
-        - { path: ^/register, roles: PUBLIC_ACCESS }
+    access_control:       
+        - { path: ^/post, roles: ROLE_USER }
         
 
 when@test:

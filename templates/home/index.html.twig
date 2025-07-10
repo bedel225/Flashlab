@@ -4,12 +4,19 @@
 
 {% block body %}
     <div class="home-wrapper">
-        <h1>Bienvenue sur notre site</h1>
-        <p>Choisissez une option ci-dessous :</p>
+        {% if app.user %}
+            <h1>Bienvenue, {{ app.user.email }} 👋</h1>
+            <p>Vous êtes connecté.</p>
+            <a href="{{ path('logout') }}">Déconnexion</a>
+            <a href="{{ path('app_post') }}">Voir les posts</a>
+        {% else %}
+            <h1>Bienvenue sur notre site</h1>
+            <p>Connectez-vous ou créez un compte pour continuer :</p>
 
-        <div class="button-group">
-            <a href="{{ path('app_register') }}">Créer un compte</a>
-            <a href="{{ path('login') }}">Se connecter</a>
-        </div>
+            <div class="button-group">
+                <a href="{{ path('app_register') }}">Créer un compte</a>
+                <a href="{{ path('login') }}">Se connecter</a>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}

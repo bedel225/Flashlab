@@ -19,7 +19,7 @@ class PostController extends AbstractController
     $this->entityManager = $entityManager;
 }
 
-    #[Route('/', name: 'app_post')]
+    #[Route('/post', name: 'app_post')]
     public function index(Request $request, PaginatorInterface $paginator): Response
     {
         $author = $request->query->get('author');
